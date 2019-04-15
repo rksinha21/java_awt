@@ -1,0 +1,67 @@
+package workshop;
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class radiobutton implements ActionListener {
+	JFrame f;
+	JLabel l1;
+	JRadioButton rb1,rb2,rb3,rb4;
+	JButton b1,b2,b3;
+	JPanel p;
+	radiobutton()
+	{
+		f=new JFrame();
+		l1=new JLabel("Which among the following is NOT an Object-Oriented Programming Language?");
+		rb1=new JRadioButton("JAVA");
+		rb2=new JRadioButton("PYTHON");
+		rb3=new JRadioButton("C");
+		rb4=new JRadioButton("C++");
+		ButtonGroup br=new ButtonGroup();
+		b1=new JButton("SUBMIT");
+		b2=new JButton("EXIT");
+		b3=new JButton("RESET");
+		p=new JPanel();
+		br.add(rb1);
+		br.add(rb2);
+		br.add(rb3);
+		br.add(rb4);
+		p.add(l1);
+		p.add(rb1);
+		p.add(rb2);
+		p.add(rb3);
+		p.add(rb4);
+		p.add(b1);
+		p.add(b2);
+		p.add(b3);
+		f.add(p);
+		f.setSize(500,400);
+		f.setVisible(true);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource()==b1)
+		{
+			if(rb1.isSelected() || rb2.isSelected() || rb3.isSelected() || rb4.isSelected())
+			{
+				JOptionPane.showMessageDialog(f,"Your Answer is Submitted");
+			}
+		}
+		if(e.getSource()==b2)
+		{
+			System.exit(0);
+		}
+		if(e.getSource()==b3)
+		{
+			rb1.setSelected(true);
+		}
+	}
+	public static void main(String[] args) {
+		new radiobutton();
+
+	}
+
+}
