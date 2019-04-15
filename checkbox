@@ -1,0 +1,64 @@
+package workshop;
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
+public class checkbox implements ActionListener {
+	JFrame f;
+	JLabel l1;
+	JCheckBox cb1,cb2,cb3,cb4,cb5;
+	JButton b1,b2;
+	JPanel p;
+	checkbox()
+	{
+		f=new JFrame("Skill Set");
+		l1=new JLabel("Select your skills:");
+		cb1=new JCheckBox("JAVA");
+		cb2=new JCheckBox("PYTHON");
+		cb3=new JCheckBox("C++");
+		cb4=new JCheckBox("ANDROID DEVELOPMENT");
+		cb5=new JCheckBox("WEB DEVELOPMENT");
+		b1=new JButton("SUBMIT");
+		b2=new JButton("RESET");
+		p=new JPanel();
+		p.add(l1);
+		p.add(cb1);
+		p.add(cb2);
+		p.add(cb3);
+		p.add(cb4);
+		p.add(cb5);
+		p.add(b1);
+		p.add(b2);
+		f.add(p);
+		f.setSize(300,300);
+		f.setVisible(true);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource()==b1)
+		{
+			if(cb1.isSelected() || cb2.isSelected() || cb3.isSelected() || cb4.isSelected() || cb5.isSelected())
+			{
+				JOptionPane.showMessageDialog(f,"Your Choices are Saved!!");
+			}
+			else
+			{
+				JOptionPane.showMessageDialog  (f,"Please Select Atleast One Skill");
+			}
+		}
+		if(e.getSource()==b2)
+		{
+		cb1.setSelected(false);
+		cb2.setSelected(false);
+		cb3.setSelected(false);
+		cb4.setSelected(false);
+		cb5.setSelected(false);	
+		}
+	}
+	public static void main(String args[])
+	{
+		new checkbox();
+	}
+
+}
